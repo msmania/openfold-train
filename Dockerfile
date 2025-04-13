@@ -11,9 +11,6 @@ WORKDIR /work
 
 RUN git clone https://github.com/msmania/openfold.git \
   -b pl_upgrades
-RUN git clone https://github.com/NVIDIA/cutlass.git \
-  -b v3.8.0
 
-RUN CUTLASS_PATH=/work/cutlass \
-  micromamba install -y -n base -f openfold/environment.yml \
+RUN micromamba install -y -n base -f openfold/environment.yml \
   && micromamba clean --all --yes
